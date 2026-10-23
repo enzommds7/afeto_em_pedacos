@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Identidade -->
+  <title>Afeto em Pedaços | Brownies Artesanais · Sem Glúten e Sem Lactose</title>
+  <meta name="description" content="Brownies artesanais e caseiros, 100% sem glúten e sem lactose. Atendimento de segunda a sexta com entregas a partir das 14h. Peça pelo WhatsApp!">
+  <meta name="keywords" content="brownie artesanal, sem glúten, sem lactose, afeto em pedaços, brownie caseiro, doces artesanais, confeitaria inclusiva">
+  <meta name="author" content="Afeto em Pedaços">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Afeto em Pedaços | Brownies Artesanais">
+  <meta property="og:description" content="Espalhando afeto em doces pedaços! Brownies artesanais sem glúten e sem lactose. Peça pelo WhatsApp.">
+  <meta property="og:image" content="placeholder-hero.svg">
+  <meta property="og:url" content="https://enzommds7.github.io/afeto_em_pedacos/">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Google Fonts: Bebas Neue (Títulos), Playfair Display (Serifada Elegante), Inter (Corpo), Dancing Script (Acentos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       CABEÇALHO & NAVEGAÇÃO INSTITUCIONAL
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container site-header__inner">
+      <!-- Logotipo em Texto -->
+      <a href="#inicio" class="site-logo" aria-label="Afeto em Pedaços - Voltar ao início">
+        <span class="site-logo__title">AFETO EM PEDAÇOS</span>
+        <span class="site-logo__subtitle">Brownies Artesanais</span>
+      </a>
+
+      <!-- Navegação Principal Desktop -->
+      <nav class="site-nav" aria-label="Navegação principal">
+        <ul class="site-nav__list">
+          <li><a href="#sobre" class="site-nav__link">Sobre</a></li>
+          <li><a href="#sabores" class="site-nav__link">Sabores</a></li>
+          <li><a href="#atendimento" class="site-nav__link">Atendimento</a></li>
+          <li><a href="#contato" class="site-nav__link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Ações do Cabeçalho -->
+      <div class="site-header__actions">
+        <!-- Botão WhatsApp com Função Dedicada -->
+        <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Afeto%20em%20Peda%C3%A7os%20e%20gostaria%20de%20fazer%20um%20pedido%20de%20brownies.%20Poderiam%20me%20passar%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis%3F" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn--primary btn--sm"
+           data-whatsapp
+           id="headerWhatsAppBtn">
+          <!-- Ícone WhatsApp SVG Inline -->
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+          <span>Pedir no WhatsApp</span>
+        </a>
+
+        <!-- Botão Menu Mobile (Hamburguer) -->
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menu de navegação">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Gaveta Mobile -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="#sobre" class="mobile-menu__link">Sobre</a>
+      <a href="#sabores" class="mobile-menu__link">Sabores</a>
+      <a href="#atendimento" class="mobile-menu__link">Atendimento</a>
+      <a href="#contato" class="mobile-menu__link">Contato</a>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- ======================================================================
+         HERO SECTION
+         ====================================================================== -->
+    <!-- Faixa decorativa sutil de pedaços de brownie (referência das publicações) -->
+    <div class="brownie-tape brownie-tape--top" aria-hidden="true"></div>
+
+    <section class="section hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <!-- Coluna de Texto e Ações -->
+        <div class="hero__content">
+          <!-- Selo Sem Glúten · Sem Lactose -->
+          <div class="diet-badge" role="status">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+            <span>Sem glúten · Sem lactose</span>
+          </div>
+
+          <!-- Título Forte e Impactante -->
+          <h1 id="hero-title" class="hero__title">
+            AFETO EM DOCES PEDAÇOS!
+          </h1>
+
+          <!-- Slogan Oficial -->
+          <p class="hero__slogan">
+            “A gente acredita que afeto se espalha em forma de doçura, e por que não em brownies.”
+          </p>
+
+          <!-- Texto de Apoio Editorial -->
+          <p class="hero__text">
+            Brownies artesanais e caseiros, feitos à mão com receita inclusiva e ingredientes nobres. 
+            Crocância delicada por fora, textura densa e úmida por dentro.
+          </p>
+
+          <!-- Grupo de Botões (WhatsApp e Instagram) -->
+          <div class="hero__cta-group">
+            <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Afeto%20em%20Peda%C3%A7os%20e%20gostaria%20de%20fazer%20um%20pedido%20de%20brownies.%20Poderiam%20me%20passar%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis%3F"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn--primary"
+               data-whatsapp
+               id="heroWhatsAppBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+              <span>Fazer Pedido no WhatsApp</span>
+            </a>
+
+            <a href="https://www.instagram.com/afetoem_pedacos"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn--secondary"
+               id="heroInstagramBtn"
+               aria-label="Acessar o perfil no Instagram @afetoem_pedacos (abre em nova aba)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span>@afetoem_pedacos</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna Visual: Moldura com Placeholder Editorial -->
+        <div class="hero__media">
+          <div class="hero__frame">
+            <div class="hero__image-wrapper">
+              <!--
+                ================================================================
+                [SUBSTITUIÇÃO DE IMAGEM CLIENTE]
+                Substitua o arquivo abaixo por uma foto real dos brownies no prato:
+                Caminho recomendado: assets/img/hero-brownie.jpg (Proporção 4:3)
+                ================================================================
+              -->
+              <img src="placeholder-hero.svg" 
+                   alt="Brownies artesanais da Afeto em Pedaços com casquinha craquelada e textura úmida" 
+                   width="800" 
+                   height="600" 
+                   loading="eager">
+            </div>
+            <div class="hero__image-caption">
+              <span>Produção Diária Artesanal</span>
+              <span>100% Inclusivo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEÇÃO SOBRE NÓS
+         ====================================================================== -->
+    <section class="section about" id="sobre" aria-labelledby="sobre-title">
+      <div class="container about__grid">
+        <!-- Narrativa Calorosa e Editorial -->
+        <div class="about__content">
+          <header class="section-header">
+            <span class="section-tagline">Nossa Essência & Cuidado</span>
+            <h2 id="sobre-title" class="section-title">FEITO À MÃO, COM AFETO E SEGURANÇA</h2>
+          </header>
+
+          <div class="about__quote-block">
+            <blockquote class="about__identity-phrase">
+              “A gente acredita que afeto se espalha em forma de doçura, e por que não em brownies.”
+            </blockquote>
+          </div>
+
+          <div class="about__body">
+            <p>
+              A <strong>Afeto em Pedaços</strong> nasceu do desejo genuíno de transformar momentos do dia em pequenas pausas de aconchego. Cada fornada é preparada artesanalmente, preservando o tempo que um bom brownie exige: o ponto ideal que une a casquinha fina e brilhante ao interior cremoso que derrete suavemente.
+            </p>
+            <p>
+              Sabemos o quanto restrições alimentares exigem atenção e responsabilidade. Por isso, todas as nossas criações são <strong>100% livres de glúten e livres de lactose</strong>. Cuidamos rigorosamente da seleção dos insumos e do ambiente de preparo, para que você e quem você ama possam desfrutar de uma sobremesa extraordinária com total tranquilidade.
+            </p>
+            <p>
+              Não usamos conservantes nem processos industriais. É o calor do feito em casa, embalado individualmente com carinho para acompanhar sua tarde ou presentear alguém especial.
+            </p>
+          </div>
+
+          <div class="about__pill-list">
+            <div class="about__pill-item">Sem glúten</div>
+            <div class="about__pill-item">Sem lactose</div>
+            <div class="about__pill-item">Cacau selecionado</div>
+            <div class="about__pill-item">Preparo artesanal diário</div>
+          </div>
+        </div>
+
+        <!-- Coluna de Imagem / Embalagens -->
+        <div class="about__media">
+          <div class="about__photo-card">
+            <div class="about__image-wrapper">
+              <!--
+                ================================================================
+                [SUBSTITUIÇÃO DE IMAGEM CLIENTE]
+                Substitua o arquivo abaixo por foto real das embalagens individuais com tag:
+                Caminho recomendado: assets/img/sobre-embalagens.jpg (Proporção 7:8)
+                ================================================================
+              -->
+              <img src="placeholder-sobre.svg" 
+                   alt="Embalagens individuais artesanais dos brownies da Afeto em Pedaços com etiquetas de identificação" 
+                   width="700" 
+                   height="800" 
+                   loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEÇÃO SABORES (CARDÁPIO)
+         ====================================================================== -->
+    <section class="section flavors" id="sabores" aria-labelledby="sabores-title">
+      <div class="container">
+        <header class="section-header section-header--centered">
+          <span class="section-tagline">Cardápio de Fornada</span>
+          <h2 id="sabores-title" class="section-title">ESCOLHA SEU PEDAÇO DE AFETO</h2>
+          <p class="section-subtitle">
+            Lista em linhas puras com nossos sabores artesanais. Todos sem glúten e sem lactose.
+          </p>
+        </header>
+
+        <!-- Grade em Duas Colunas com Linhas Finas (Sem caixas ou cards pill) -->
+        <div class="flavors__columns">
+          
+          <!-- Coluna 1 -->
+          <div class="flavors__col">
+            <!-- Item 1: Tradicional -->
+            <article class="flavor-row">
+              <div class="flavor-row__info">
+                <div class="flavor-row__header">
+                  <h3 class="flavor-row__name">Tradicional</h3>
+                </div>
+                <p class="flavor-row__desc">A receita pura e clássica: casquinha craquelada crocante e massa úmida com sabor intenso de chocolate nobre.</p>
+              </div>
+              <div class="flavor-row__action">
+                <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20brownie%20sabor%20Tradicional.%20Est%C3%A1%20dispon%C3%ADvel%3F" 
+                   class="flavor-row__link" 
+                   data-whatsapp 
+                   data-whatsapp-sabor="Tradicional"
+                   aria-label="Pedir sabor Tradicional no WhatsApp">
+                  <span>Pedir</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Item 2: Tradicional com pedaços de chocolate -->
+            <article class="flavor-row">
+              <div class="flavor-row__info">
+                <div class="flavor-row__header">
+                  <h3 class="flavor-row__name">Tradicional com pedaços de chocolate</h3>
+                </div>
+                <p class="flavor-row__desc">Pedaços generosos de chocolate branco ou preto distribuídos pela massa, derretendo suavemente a cada mordida.</p>
+              </div>
+              <div class="flavor-row__action">
+                <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20brownie%20sabor%20Tradicional%20com%20peda%C3%A7os%20de%20chocolate.%20Est%C3%A1%20dispon%C3%ADvel%3F" 
+                   class="flavor-row__link" 
+                   data-whatsapp 
+                   data-whatsapp-sabor="Tradicional com pedaços de chocolate (branco ou preto)"
+                   aria-label="Pedir sabor Tradicional com pedaços de chocolate no WhatsApp">
+                  <span>Pedir</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Item 3: Tradicional com nozes -->
+            <article class="flavor-row">
+              <div class="flavor-row__info">
+                <div class="flavor-row__header">
+                  <h3 class="flavor-row__name">Tradicional com nozes</h3>
+                </div>
+                <p class="flavor-row__desc">O casamento perfeito entre a densidade sedosa do cacau e o aroma tostado e crocante de nozes nobres selecionadas.</p>
+              </div>
+              <div class="flavor-row__action">
+                <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20brownie%20sabor%20Tradicional%20com%20nozes.%20Est%C3%A1%20dispon%C3%ADvel%3F" 
+                   class="flavor-row__link" 
+                   data-whatsapp 
+                   data-whatsapp-sabor="Tradicional com nozes"
+                   aria-label="Pedir sabor Tradicional com nozes no WhatsApp">
+                  <span>Pedir</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Item 4: Tradicional com recheio -->
+            <article class="flavor-row">
+              <div class="flavor-row__info">
+                <div class="flavor-row__header">
+                  <h3 class="flavor-row__name">Tradicional com recheio (brigadeiro ou ninho)</h3>
+                </div>
+                <p class="flavor-row__desc">Camada espessa de recheio cremoso e aveludado sem lactose, trazendo a nostalgia do brigadeiro ou do ninho artesanal.</p>
+              </div>
+              <div class="flavor-row__action">
+                <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20brownie%20sabor%20Tradicional%20com%20recheio.%20Est%C3%A1%20dispon%C3%ADvel%3F" 
+                   class="flavor-row__link" 
+                   data-whatsapp 
+                   data-whatsapp-sabor="Tradicional com recheio (brigadeiro ou ninho)"
+                   aria-label="Pedir sabor Tradicional com recheio no WhatsApp">
+                  <span>Pedir</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Coluna 2 -->
+          <div class="flavors__col">
+            <!-- Item 5: Tradicional com cereja -->
+            <article class="flavor-row">
+              <div class="flavor-row__info">
+                <div class="flavor-row__header">
+                  <h3 class="flavor-row__name">Tradicional com cereja</h3>
+                </div>
+                <p class="flavor-row__desc">Toque refinado e levemente licoroso da cereja que corta e complementa com sofisticação a riqueza do chocolate.</p>
+              </div>
+              <div class="flavor-row__action">
+                <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20brownie%20sabor%20Tradicional%20com%20cereja.%20Est%C3%A1%20dispon%C3%ADvel%3F" 
+                   class="flavor-row__link" 
+                   data-whatsapp 
+                   data-whatsapp-sabor="Tradicional com cereja"
+                   aria-label="Pedir sabor Tradicional com cereja no WhatsApp">
+                  <span>Pedir</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Item 6: Tradicional com creme de avelã -->
+            <article class="flavor-row">
+              <div class="flavor-row__info">
+                <div class="flavor-row__header">
+                  <h3 class="flavor-row__name">Tradicional com creme de avelã</h3>
+                </div>
+                <p class="flavor-row__desc">Creme aveludado de avelãs selecionadas, proporcionando textura untuosa e aroma aconchegante sem leite.</p>
+              </div>
+              <div class="flavor-row__action">
+                <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20brownie%20sabor%20Tradicional%20com%20creme%20de%20avel%C3%A3.%20Est%C3%A1%20dispon%C3%ADvel%3F" 
+                   class="flavor-row__link" 
+                   data-whatsapp 
+                   data-whatsapp-sabor="Tradicional com creme de avelã"
+                   aria-label="Pedir sabor Tradicional com creme de avelã no WhatsApp">
+                  <span>Pedir</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Item 7: Tradicional com confete -->
+            <article class="flavor-row">
+              <div class="flavor-row__info">
+                <div class="flavor-row__header">
+                  <h3 class="flavor-row__name">Tradicional com confete</h3>
+                </div>
+                <p class="flavor-row__desc">Cores alegres e crocância divertida sobre a massa escura de cacau, adorado por todas as idades.</p>
+              </div>
+              <div class="flavor-row__action">
+                <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20brownie%20sabor%20Tradicional%20com%20confete.%20Est%C3%A1%20dispon%C3%ADvel%3F" 
+                   class="flavor-row__link" 
+                   data-whatsapp 
+                   data-whatsapp-sabor="Tradicional com confete"
+                   aria-label="Pedir sabor Tradicional com confete no WhatsApp">
+                  <span>Pedir</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- Item 8: Destaque Novidade Discreta na Lista -->
+            <article class="flavor-row flavor-row--highlight">
+              <div class="flavor-row__info">
+                <div class="flavor-row__header">
+                  <span class="badge-novidade">Novidade</span>
+                  <h3 class="flavor-row__name">Brownies Afogados num Recheio Chocolatudo</h3>
+                </div>
+                <p class="flavor-row__desc">Pedaços de brownie caseiro imersos em calda cremosa de ganache chocolatuda especial. Experiência indulgente.</p>
+              </div>
+              <div class="flavor-row__action">
+                <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20brownie%20sabor%20Brownies%20Afogados%20num%20Recheio%20Chocolatudo.%20Est%C3%A1%20dispon%C3%ADvel%3F" 
+                   class="btn btn--primary btn--sm" 
+                   data-whatsapp 
+                   data-whatsapp-sabor="Brownies Afogados num Recheio Chocolatudo"
+                   aria-label="Pedir a novidade Brownies Afogados num Recheio Chocolatudo no WhatsApp">
+                  <span>Pedir Novidade</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Banner Editorial em Destaque para a Novidade Chocolatuda -->
+        <aside class="novidade-feature" aria-labelledby="novidade-heading">
+          <div class="novidade-feature__grid">
+            <div class="novidade-feature__content">
+              <span class="novidade-feature__tag">Lançamento Especial</span>
+              <h3 id="novidade-heading" class="novidade-feature__title">
+                BROWNIES AFOGADOS NUM RECHEIO CHOCOLATUDO
+              </h3>
+              <p class="novidade-feature__desc">
+                Pedaços macios de brownie cobertos com fartura de recheio aveludado e chocolatudo sem lactose. Para comer de colher e se apaixonar.
+              </p>
+              <div>
+                <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20brownie%20sabor%20Brownies%20Afogados%20num%20Recheio%20Chocolatudo.%20Est%C3%A1%20dispon%C3%ADvel%3F"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn--primary"
+                   data-whatsapp
+                   data-whatsapp-sabor="Brownies Afogados num Recheio Chocolatudo">
+                  <span>Pedir Brownies Afogados no WhatsApp</span>
+                </a>
+              </div>
+            </div>
+            <div class="novidade-feature__media">
+              <!--
+                ================================================================
+                [SUBSTITUIÇÃO DE IMAGEM CLIENTE]
+                Substitua pela foto real do prato/pote de brownies afogados:
+                Caminho recomendado: assets/img/novidade-chocolatuda.jpg (Proporção 3:2)
+                ================================================================
+              -->
+              <img src="placeholder-novidade.svg" 
+                   alt="Brownies artesanais afogados em calda quente chocolatuda sem glúten e sem lactose" 
+                   width="600" 
+                   height="400" 
+                   loading="lazy">
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEÇÃO COMO PEDIR & ATENDIMENTO
+         ====================================================================== -->
+    <section class="section ordering" id="atendimento" aria-labelledby="atendimento-title">
+      <div class="container">
+        <header class="section-header section-header--centered">
+          <span class="section-tagline">Simplicidade & Pontualidade</span>
+          <h2 id="atendimento-title" class="section-title">COMO PEDIR E RECEBER SEUS BROWNIES</h2>
+          <p class="section-subtitle">
+            Planejamos nossa fornada diariamente para que tudo chegue fresco e no ponto exato à sua porta.
+          </p>
+        </header>
+
+        <!-- Faixa de Dias e Horários de Entrega -->
+        <div class="schedule-banner" role="region" aria-label="Informações de dias e horários de atendimento">
+          <div class="schedule-banner__item">
+            <div class="schedule-banner__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div>
+              <p class="schedule-banner__label">Dias de Atendimento</p>
+              <p class="schedule-banner__val">Segunda a Sexta-feira</p>
+            </div>
+          </div>
+
+          <div class="schedule-banner__item">
+            <div class="schedule-banner__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div>
+              <p class="schedule-banner__label">Horário de Entregas</p>
+              <p class="schedule-banner__val">No período da tarde · a partir das 14:00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passo a Passo em 3 Etapas Editoriais -->
+        <div class="steps-grid">
+          <!-- Etapa 1 -->
+          <div class="step-card">
+            <div class="step-card__number">01</div>
+            <h3 class="step-card__title">Escolha os Sabores</h3>
+            <p class="step-card__text">
+              Consulte nosso cardápio acima e defina os sabores e quantidades desejadas, sejam os clássicos ou a novidade chocolatuda.
+            </p>
+          </div>
+
+          <!-- Etapa 2 -->
+          <div class="step-card">
+            <div class="step-card__number">02</div>
+            <h3 class="step-card__title">Envie no WhatsApp</h3>
+            <p class="step-card__text">
+              Clique no botão para abrir a conversa com sua mensagem pronta. Informe seu endereço para combinarmos a entrega da tarde.
+            </p>
+          </div>
+
+          <!-- Etapa 3 -->
+          <div class="step-card">
+            <div class="step-card__number">03</div>
+            <h3 class="step-card__title">Receba com Afeto</h3>
+            <p class="step-card__text">
+              Sua encomenda é separada com todo o cuidado, em embalagens higiênicas e seguras, entregue a partir das 14h para adocicar o seu dia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEÇÃO DE CONTATO
+         ====================================================================== -->
+    <section class="section contact" id="contato" aria-labelledby="contato-title">
+      <div class="container">
+        <header class="section-header section-header--centered">
+          <span class="section-tagline">Canais Diretos</span>
+          <h2 id="contato-title" class="section-title">FALE COM A AFETO EM PEDAÇOS</h2>
+          <p class="section-subtitle">
+            Estamos prontos para atender você, tirar dúvidas sobre ingredientes ou organizar seu pedido personalizado.
+          </p>
+        </header>
+
+        <div class="contact__grid">
+          <!-- Card de WhatsApp -->
+          <div class="contact__card">
+            <div>
+              <div class="contact__card-header">
+                <div class="contact__card-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </div>
+                <h3 class="contact__card-title">WHATSAPP OFICIAL</h3>
+              </div>
+              <p class="contact__card-desc">
+                Canal exclusivo para pedidos diários, dúvidas sobre restrições e confirmações de entregas.
+              </p>
+              <p class="contact__card-link">(47) 9 9657-7492</p>
+            </div>
+
+            <a href="https://wa.me/5547996577492?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Afeto%20em%20Peda%C3%A7os%20e%20gostaria%20de%20fazer%20um%20pedido%20de%20brownies.%20Poderiam%20me%20passar%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis%3F"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn--primary"
+               data-whatsapp
+               id="contactWhatsAppBtn">
+              <span>Iniciar Conversa no WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Card de Instagram -->
+          <div class="contact__card">
+            <div>
+              <div class="contact__card-header">
+                <div class="contact__card-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <h3 class="contact__card-title">INSTAGRAM</h3>
+              </div>
+              <p class="contact__card-desc">
+                Acompanhe o dia a dia da nossa produção artesanal, bastidores, novidades e depoimentos calorosos.
+              </p>
+              <p class="contact__card-link">@afetoem_pedacos</p>
+            </div>
+
+            <a href="https://www.instagram.com/afetoem_pedacos"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn--secondary"
+               id="contactInstagramBtn"
+               aria-label="Acessar o perfil no Instagram @afetoem_pedacos (abre em nova aba)">
+              <span>Seguir no Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       RODAPÉ ENXUTO COM FAIXA DE TEXTURA
+       ======================================================================== -->
+  <div class="brownie-tape brownie-tape--bottom" aria-hidden="true"></div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container site-footer__inner">
+      <div class="site-footer__main">
+        <div>
+          <p class="site-footer__brand-title">AFETO EM PEDAÇOS</p>
+          <p class="site-footer__brand-slogan">“Espalhando afeto em doces pedaços!”</p>
+        </div>
+
+        <nav aria-label="Navegação do rodapé">
+          <ul class="site-footer__meta">
+            <li><a href="#sobre" class="site-footer__meta-link">Sobre nós</a></li>
+            <li><a href="#sabores" class="site-footer__meta-link">Cardápio</a></li>
+            <li><a href="#atendimento" class="site-footer__meta-link">Horários</a></li>
+            <li><a href="#contato" class="site-footer__meta-link">Contato</a></li>
+            <li><a href="https://www.instagram.com/afetoem_pedacos" target="_blank" rel="noopener noreferrer" class="site-footer__meta-link">Instagram</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>Todos os nossos brownies são 100% caseiros, sem glúten e sem lactose. Produção em Santa Catarina.</p>
+        <p>&copy; <span id="currentYear">2026</span> Afeto em Pedaços. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Principal sem dependências externas -->
+  <script src="main.js"></script>
+</body>
+</html>

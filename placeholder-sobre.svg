@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 800" width="700" height="800" fill="none">
+  <defs>
+    <linearGradient id="sobreBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F6EDE0"/>
+      <stop offset="100%" stop-color="#EBC9C1" stop-opacity="0.6"/>
+    </linearGradient>
+    <filter id="packShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#3B1F17" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Fundo editorial aquecido -->
+  <rect width="700" height="800" fill="url(#sobreBg)"/>
+  
+  <!-- Borda de enquadramento 1px fina -->
+  <rect x="25" y="25" width="650" height="750" fill="none" stroke="#3B1F17" stroke-width="1" stroke-opacity="0.18"/>
+
+  <!-- Embalagens individuais artesanais transparentes (inspiradas na foto real das tags) -->
+  <g transform="translate(140, 150)" filter="url(#packShadow)">
+    <!-- Pacotinho 1 (fundo) -->
+    <rect x="15" y="-30" width="380" height="420" rx="4" fill="#3B1F17" fill-opacity="0.75"/>
+    <rect x="35" y="-10" width="340" height="380" rx="3" fill="#24120E"/>
+    <!-- Brilho plástico sutil -->
+    <path d="M40 0 L180 340" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.15"/>
+
+    <!-- Pacotinho em primeiro plano -->
+    <rect x="-20" y="40" width="410" height="450" rx="4" fill="#3B1F17" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.25"/>
+    <!-- Brownie artesanal interno -->
+    <rect x="5" y="65" width="360" height="400" rx="3" fill="#2D150F"/>
+    <rect x="25" y="85" width="320" height="150" fill="#5C1A1B" fill-opacity="0.5"/>
+    <!-- Pedaços de nozes visíveis -->
+    <ellipse cx="120" cy="140" rx="22" ry="14" fill="#B8664C"/>
+    <ellipse cx="260" cy="180" rx="26" ry="16" fill="#B8664C"/>
+
+    <!-- Tag artesanal clássica da Afeto em Pedaços -->
+    <g transform="translate(65, 230)">
+      <rect width="250" height="170" rx="3" fill="#F6EDE0" stroke="#3B1F17" stroke-width="1"/>
+      <rect x="6" y="6" width="238" height="158" rx="2" fill="none" stroke="#B8664C" stroke-width="0.8" stroke-dasharray="3 3"/>
+      
+      <!-- Mini logo / brownie na etiqueta -->
+      <rect x="110" y="22" width="30" height="24" rx="2" fill="#3B1F17"/>
+      <rect x="114" y="26" width="22" height="16" fill="#5C1A1B"/>
+      
+      <!-- Textos da etiqueta -->
+      <text x="125" y="66" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#5C1A1B" text-anchor="middle" letter-spacing="1.5">AFETO EM PEDAÇOS</text>
+      <text x="125" y="84" font-family="'Playfair Display', serif" font-style="italic" font-size="11" fill="#3B1F17" text-anchor="middle">Brownies Artesanais</text>
+      <line x1="40" y1="96" x2="210" y2="96" stroke="#B8664C" stroke-width="0.75"/>
+      <text x="125" y="114" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#3B1F17" text-anchor="middle" letter-spacing="0.5">SEM GLÚTEN · SEM LACTOSE</text>
+      <text x="125" y="132" font-family="'Inter', sans-serif" font-size="8.5" fill="#3B1F17" fill-opacity="0.75" text-anchor="middle">Feito à mão com afeto</text>
+      <text x="125" y="148" font-family="'Inter', sans-serif" font-size="8.5" font-weight="500" fill="#C94B6D" text-anchor="middle">@afetoem_pedacos</text>
+    </g>
+  </g>
+
+  <!-- Elemento editorial no canto inferior -->
+  <g transform="translate(45, 710)">
+    <text x="0" y="0" font-family="'Bebas Neue', sans-serif" font-size="28" fill="#5C1A1B" letter-spacing="1">PRODUÇÃO 100% SEGURA</text>
+    <text x="0" y="20" font-family="'Inter', sans-serif" font-size="11" fill="#3B1F17" fill-opacity="0.7">Cozinha dedicada livre de contaminação cruzada</text>
+  </g>
+</svg>

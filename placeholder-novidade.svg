@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <defs>
+    <linearGradient id="novidadeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B1F17"/>
+      <stop offset="100%" stop-color="#24120E"/>
+    </linearGradient>
+    <linearGradient id="ganacheFlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5C1A1B"/>
+      <stop offset="40%" stop-color="#3B1F17"/>
+      <stop offset="100%" stop-color="#1B0C08"/>
+    </linearGradient>
+    <filter id="ganacheGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="400" rx="3" fill="url(#novidadeBg)"/>
+  <rect x="12" y="12" width="576" height="376" rx="2" fill="none" stroke="#B8664C" stroke-width="1" stroke-opacity="0.35"/>
+
+  <!-- Tigela / Prato de apresentação para os brownies afogados -->
+  <g transform="translate(300, 220)" filter="url(#ganacheGlow)">
+    <!-- Base em cerâmica escura -->
+    <ellipse cx="0" cy="70" rx="210" ry="45" fill="#140705"/>
+    <ellipse cx="0" cy="60" rx="200" ry="38" fill="#F6EDE0" fill-opacity="0.12"/>
+    <ellipse cx="0" cy="55" rx="190" ry="32" fill="#5C1A1B" fill-opacity="0.8"/>
+
+    <!-- Brownie em cubos imersos -->
+    <rect x="-110" y="-30" width="95" height="85" rx="3" fill="#3B1F17" stroke="#B8664C" stroke-width="1"/>
+    <rect x="15" y="-40" width="105" height="90" rx="3" fill="#2E1610" stroke="#B8664C" stroke-width="1"/>
+    <rect x="-40" y="-60" width="90" height="80" rx="3" fill="#3B1F17"/>
+
+    <!-- Calda chocolatuda escorrendo / afogando os pedaços -->
+    <path d="M-130 15 C-90 -10 -40 -20 0 -15 C50 -20 100 -5 130 20 C100 45 40 55 0 55 C-50 55 -100 45 -130 15 Z" fill="url(#ganacheFlow)"/>
+    <!-- Brilho espelhado da calda de chocolate -->
+    <path d="M-80 0 Q-20 -15 40 -10 Q10 -2 -30 15 Z" fill="#FFFFFF" fill-opacity="0.18"/>
+    <path d="M-40 25 Q10 18 60 22" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.22" stroke-linecap="round" fill="none"/>
+    
+    <!-- Gotas de chocolate no prato -->
+    <circle cx="-135" cy="50" r="4.5" fill="#1B0C08"/>
+    <circle cx="125" cy="48" r="5" fill="#1B0C08"/>
+    <circle cx="85" cy="62" r="3" fill="#1B0C08"/>
+  </g>
+
+  <!-- Selo e título no topo do SVG -->
+  <g transform="translate(30, 35)">
+    <rect width="90" height="22" rx="2" fill="#C94B6D"/>
+    <text x="45" y="15" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#F6EDE0" text-anchor="middle" letter-spacing="1">NOVIDADE</text>
+  </g>
+  <text x="30" y="85" font-family="'Bebas Neue', sans-serif" font-size="32" fill="#F6EDE0" letter-spacing="1">AFOGADOS NUM RECHEIO CHOCOLATUDO</text>
+  <text x="30" y="108" font-family="'Playfair Display', serif" font-style="italic" font-size="14" fill="#EBC9C1">Mergulhados em ganache artesanal cremosa · 100% sem glúten e sem lactose</text>
+</svg>
