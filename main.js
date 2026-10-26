@@ -1,121 +1,178 @@
 /**
- * AFETO EM PEDAÇOS · SCRIPTS FRONT-END
- * Integração WhatsApp, Navegação Responsiva e Interações Editoriais
+ * AFETO EM PEDAÇOS · SCRIPTS FRONT-END OTIMIZADOS
+ * Stepper de Quantidades, Pedido Dinâmico no WhatsApp, Acessibilidade & Mobile
+ * Foco: 100% Vanilla JS, zero dependências, compatível com WebViews (Android/iOS)
  */
 
 // ==========================================================================
-// 1. CONFIGURAÇÃO CENTRALIZADA (FÁCIL EDIÇÃO PELO CLIENTE)
+// 1. CONFIGURAÇÃO CENTRALIZADA (FÁCIL EDIÇÃO)
 // ==========================================================================
-const CONFIG_WHATSAPP = {
-  // Número oficial de atendimento com DDI (55) e DDD (47)
-  numeroTelefone: '5547996577492',
-  
-  // Endpoint oficial da API do WhatsApp
+const CONFIG = {
+  // Telefone oficial com DDI (55) e DDD (47)
+  telefone: '5547996577492',
+
+  // Endpoint oficial do WhatsApp
   baseUrl: 'https://wa.me/',
 
-  // Mensagem padrão enviada pelos botões gerais (Hero, Header, Contato)
+  // Mensagem padrão caso nenhum sabor específico seja selecionado
   mensagemPadrao: 'Olá! Vim pelo site da Afeto em Pedaços e gostaria de fazer um pedido de brownies. Poderiam me passar as opções disponíveis?',
 
-  // Template da mensagem ao clicar em "Pedir este sabor" no cardápio
-  gerarMensagemSabor: function(sabor) {
-    return `Olá! Gostaria de pedir o brownie sabor ${sabor}. Está disponível?`;
+  // Template do pedido estruturado quando houver itens selecionados no stepper
+  gerarMensagemPedido: function(itens) {
+    const listaFormatada = itens.map(i => `• ${i.qtd}x ${i.nome}`).join('\n');
+    return `Olá! Vim pelo site da Afeto em Pedaços e gostaria de pedir:\n${listaFormatada}\n\nPoderiam confirmar a disponibilidade e a entrega?`;
   }
 };
 
 // ==========================================================================
-// 2. FUNÇÃO PRINCIPAL DE ABERTURA DO WHATSAPP
+// 2. ESTADO DO PEDIDO (QUANTIDADES POR SABOR)
 // ==========================================================================
+const estadoPedido = {};
+
 /**
- * Abre o WhatsApp em nova aba com a mensagem devidamente codificada.
- * @param {string|null} sabor - Nome do sabor específico ou vazio/nulo para mensagem padrão.
+ * Retorna os itens selecionados (quantidade > 0)
  */
-function abrirWhatsApp(sabor = null) {
-  const mensagem = (sabor && typeof sabor === 'string' && sabor.trim() !== '')
-    ? CONFIG_WHATSAPP.gerarMensagemSabor(sabor.trim())
-    : CONFIG_WHATSAPP.mensagemPadrao;
-
-  const urlCompleta = `${CONFIG_WHATSAPP.baseUrl}${CONFIG_WHATSAPP.numeroTelefone}?text=${encodeURIComponent(mensagem)}`;
-
-  // Garante abertura em nova aba com segurança (noopener, noreferrer)
-  window.open(urlCompleta, '_blank', 'noopener,noreferrer');
+function obterItensSelecionados() {
+  return Object.entries(estadoPedido)
+    .filter(([_, qtd]) => qtd > 0)
+    .map(([nome, qtd]) => ({ nome, qtd }));
 }
 
-// Expõe a função no escopo global para chamadas diretas via inline onClick caso necessário
-window.abrirWhatsApp = abrirWhatsApp;
+/**
+ * Atualiza os resumos de quantidade na interface (barra fixa e cardápio)
+ */
+function atualizarResumosUI() {
+  const itens = obterItensSelecionados();
+  const totalItens = itens.reduce((soma, i) => soma + i.qtd, 0);
+
+  const textoResumo = totalItens === 0
+    ? 'Nenhum item selecionado'
+    : `${totalItens} ${totalItens === 1 ? 'brownie selecionado' : 'brownies selecionados'}`;
+
+  // Atualiza nos elementos de resumo
+  document.querySelectorAll('[data-summary-text]').forEach(el => {
+    el.textContent = textoResumo;
+  });
+
+  // Atualiza texto dos botões de WhatsApp do cardápio e sticky bar
+  const textoBotao = totalItens > 0 ? 'Enviar Pedido no WhatsApp' : 'Pedir no WhatsApp';
+  document.querySelectorAll('[data-order-btn-text]').forEach(el => {
+    el.textContent = textoBotao;
+  });
+}
+
+/**
+ * Abre o WhatsApp montando a mensagem com os itens selecionados ou a padrão
+ */
+function enviarPedidoWhatsApp() {
+  const itens = obterItensSelecionados();
+  const mensagem = itens.length > 0
+    ? CONFIG.gerarMensagemPedido(itens)
+    : CONFIG.mensagemPadrao;
+
+  const url = `${CONFIG.baseUrl}${CONFIG.telefone}?text=${encodeURIComponent(mensagem)}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+// Expõe globalmente caso necessário
+window.enviarPedidoWhatsApp = enviarPedidoWhatsApp;
 
 // ==========================================================================
 // 3. INICIALIZAÇÃO DE EVENTOS DO DOM
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
+
   // ------------------------------------------------------------------------
-  // A. Delegação de cliques para botões com atributo data-whatsapp
+  // A. Inicialização e Controle dos Steppers (- / +)
   // ------------------------------------------------------------------------
-  document.querySelectorAll('[data-whatsapp]').forEach(botao => {
-    botao.addEventListener('click', (evento) => {
-      evento.preventDefault();
-      const sabor = botao.getAttribute('data-whatsapp-sabor') || null;
-      abrirWhatsApp(sabor);
+  document.querySelectorAll('.flavor-row').forEach(row => {
+    const saborNomeEl = row.querySelector('.flavor-row__name');
+    if (!saborNomeEl) return;
+
+    const saborNome = saborNomeEl.textContent.trim();
+    estadoPedido[saborNome] = 0;
+
+    const btnMinus = row.querySelector('.stepper__btn--minus');
+    const btnPlus = row.querySelector('.stepper__btn--plus');
+    const valDisplay = row.querySelector('.stepper__val');
+
+    if (btnMinus && btnPlus && valDisplay) {
+      btnMinus.addEventListener('click', () => {
+        if (estadoPedido[saborNome] > 0) {
+          estadoPedido[saborNome]--;
+          valDisplay.textContent = estadoPedido[saborNome];
+          atualizarResumosUI();
+        }
+      });
+
+      btnPlus.addEventListener('click', () => {
+        if (estadoPedido[saborNome] < 99) {
+          estadoPedido[saborNome]++;
+          valDisplay.textContent = estadoPedido[saborNome];
+          atualizarResumosUI();
+        }
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------------
+  // B. Botões de Envio de Pedido (Cardápio, Sticky Bar e Ações Gerais)
+  // ------------------------------------------------------------------------
+  document.querySelectorAll('[data-action-order]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      enviarPedidoWhatsApp();
     });
   });
 
   // ------------------------------------------------------------------------
-  // B. Menu Hamburguer Mobile
+  // C. Menu Hamburguer Mobile Acessível
   // ------------------------------------------------------------------------
   const mobileToggle = document.getElementById('mobileMenuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileLinks = document.querySelectorAll('.mobile-menu__link');
 
   if (mobileToggle && mobileMenu) {
-    const alternarMenu = (forcarFechamento = false) => {
+    const alternarMenu = (fechar = false) => {
       const estaAberto = mobileToggle.getAttribute('aria-expanded') === 'true';
-      const novoEstado = forcarFechamento ? false : !estaAberto;
+      const novoEstado = fechar ? false : !estaAberto;
 
       mobileToggle.setAttribute('aria-expanded', String(novoEstado));
+      mobileMenu.classList.toggle('is-active', novoEstado);
+
       if (novoEstado) {
-        mobileMenu.classList.add('is-active');
+        mobileMenu.removeAttribute('aria-hidden');
         document.body.style.overflow = 'hidden';
       } else {
-        mobileMenu.classList.remove('is-active');
+        mobileMenu.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
       }
     };
 
     mobileToggle.addEventListener('click', () => alternarMenu());
 
-    // Fechar ao clicar em qualquer link da gaveta mobile
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => alternarMenu(true));
     });
 
-    // Fechar com tecla ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileToggle.getAttribute('aria-expanded') === 'true') {
         alternarMenu(true);
+        mobileToggle.focus();
       }
     });
   }
 
   // ------------------------------------------------------------------------
-  // C. Sombra sutil no Header ao rolar a página
+  // D. Ano Atual no Rodapé
   // ------------------------------------------------------------------------
-  const siteHeader = document.querySelector('.site-header');
-  const monitorarScroll = () => {
-    if (!siteHeader) return;
-    if (window.scrollY > 20) {
-      siteHeader.style.boxShadow = '0 4px 20px rgba(59, 31, 23, 0.06)';
-    } else {
-      siteHeader.style.boxShadow = 'none';
-    }
-  };
-
-  window.addEventListener('scroll', monitorarScroll, { passive: true });
-  monitorarScroll();
-
-  // ------------------------------------------------------------------------
-  // D. Ano dinâmico no copyright do rodapé
-  // ------------------------------------------------------------------------
-  const elementoAno = document.getElementById('currentYear');
-  if (elementoAno) {
-    elementoAno.textContent = new Date().getFullYear();
+  const elAno = document.getElementById('currentYear');
+  if (elAno) {
+    elAno.textContent = new Date().getFullYear();
   }
+
+  // ------------------------------------------------------------------------
+  // E. Snippet de Debug de Overflow Horizontal (Apenas para inspeção)
+  // ------------------------------------------------------------------------
+  // [...document.querySelectorAll('*')].filter(e => e.scrollWidth > innerWidth);
 });
